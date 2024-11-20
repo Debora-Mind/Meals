@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'screens/categories_screen.dart';
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -11,8 +13,23 @@ class MyApp extends StatelessWidget {
       title: 'Vamos Cozinhar?',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.blue,
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+          centerTitle: true,
+          shape: Border(
+            bottom: BorderSide(
+              color: Colors.lightBlue,
+              width: 2,
+            ),
+          ),
+        ),
       ),
-      home: MyHomePage(),
+      home: CategoriesScreen(),
     );
   }
 }
