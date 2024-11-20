@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'screens/categories_screen.dart';
+import 'package:meals/screens/categories_meals_screen.dart';
+import 'utils/app_routes.dart';
 
 void main() => runApp(const MyApp());
 
@@ -59,27 +61,10 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: CategoriesScreen(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Vamos Cozinhar?'),
-      ),
-      body: const Center(
-        child: Text('Navegar é preciso!!'),
-      ),
+      routes: {
+        AppRoutes.HOME: (ctx) => CategoriesScreen(),
+        AppRoutes.CATEGORIES_MEALS: (ctx) => CategoriesMealsScreen(),
+      },
     );
   }
 }
