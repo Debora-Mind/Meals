@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:meals/screens/meal_detail_screen.dart';
+import 'package:meals/screens/tabs_screen.dart';
 import 'package:meals/screens/unknown_route_screen.dart';
 
-import 'screens/categories_screen.dart';
 import 'package:meals/screens/categories_meals_screen.dart';
 import 'utils/app_routes.dart';
 
@@ -56,22 +56,21 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.w300,
           ),
           centerTitle: true,
-          shape: Border(
-            bottom: BorderSide(
-              color: Colors.pinkAccent,
-              width: 2,
-            ),
-          ),
+        ),
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          backgroundColor: Colors.pink,
+          unselectedItemColor: Colors.white,
+          selectedItemColor: Colors.amber,
         ),
       ),
       routes: {
-        AppRoutes.HOME: (ctx) => CategoriesScreen(),
-        AppRoutes.CATEGORIES_MEALS: (ctx) => CategoriesMealsScreen(),
-        AppRoutes.MEAL_DETAIL: (ctx) => MealDetailScreen(),
+        AppRoutes.HOME: (ctx) => const TabsScreen(),
+        AppRoutes.CATEGORIES_MEALS: (ctx) => const CategoriesMealsScreen(),
+        AppRoutes.MEAL_DETAIL: (ctx) => const MealDetailScreen(),
       },
       onUnknownRoute: (settings) {
         return MaterialPageRoute(
-          builder: (ctx) => UnknownRouteScreen(),
+          builder: (ctx) => const UnknownRouteScreen(),
         );
       },
     );
