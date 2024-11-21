@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:meals/screens/meal_detail_screen.dart';
+import 'package:meals/screens/unknown_route_screen.dart';
 
 import 'screens/categories_screen.dart';
 import 'package:meals/screens/categories_meals_screen.dart';
@@ -14,6 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Vamos Cozinhar?',
       theme: ThemeData(
+        primaryColor: Colors.pink,
         primarySwatch: Colors.pink,
         hintColor: Colors.amber,
         fontFamily: 'Raleway',
@@ -64,6 +67,12 @@ class MyApp extends StatelessWidget {
       routes: {
         AppRoutes.HOME: (ctx) => CategoriesScreen(),
         AppRoutes.CATEGORIES_MEALS: (ctx) => CategoriesMealsScreen(),
+        AppRoutes.MEAL_DETAIL: (ctx) => MealDetailScreen(),
+      },
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(
+          builder: (ctx) => UnknownRouteScreen(),
+        );
       },
     );
   }
